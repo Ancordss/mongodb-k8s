@@ -1,0 +1,23 @@
+kubectl apply -R -f mongodb/ 
+
+kubectl get pods -n mongodb
+
+kubectl apply -R -f mongodb/internal 
+
+kubectl get pods -n mongodb
+
+kubectl get pvc -n mongodb 
+
+
+kubectl get secret my-mongodb-admin-admin-user -n mongodb -o json | jq -r '.data | with_entries(.value |= @base64d)'
+
+mongodb://admin-user:admin123@my-mongodb-0.my-mongodb-svc.mongodb.svc.cluster.local:27017/admin?ssl=false
+mongosh "mongodb://admin-user:admin123@localhost:27017/admin?directConnection=true&serverSelectionTimeoutMS=2000"
+mongosh "mongodb://testuser:testpassword@localhost:27017/admin?directConnection=true&serverSelectionTimeoutMS=2000"
+
+kubectl port-forward my-mongodb-0 27017 -n mongodb
+
+
+
+
+kubectl delete pvc --all -n mongodb 

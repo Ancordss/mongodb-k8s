@@ -1,0 +1,21 @@
+services:
+  data_service:
+    image: socios_legales_app
+    container_name: data_service
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+
+  charts_service:
+    image: charts_app
+    container_name: charts_service
+    ports:
+      - "5001:5001"
+    depends_on:
+      - data_service
+    environment:
+      - DATA_SERVICE_URL=http://data_service:5000
+
+volumes:
+  mongo-data:

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socios Legales</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Socios Legales, S.A.</h1>
+    
+    <h2>Clientes</h2>
+    <form id="cliente-form">
+        <input type="text" id="cliente-dni" placeholder="DNI" required>
+        <input type="text" id="cliente-nombre" placeholder="Nombre" required>
+        <input type="text" id="cliente-apellido" placeholder="Apellido" required>
+        <input type="text" id="cliente-direccion" placeholder="Dirección" required>
+        <input type="text" id="cliente-telefono" placeholder="Teléfono" required>
+        <input type="email" id="cliente-email" placeholder="Email" required>
+        <button type="submit">Agregar Cliente</button>
+    </form>
+
+    <h2>Asuntos</h2>
+    <form id="asunto-form">
+        <input type="text" id="asunto-expediente" placeholder="Número de Expediente" required>
+        <input type="text" id="asunto-cliente-dni" placeholder="DNI del Cliente" required>
+        <input type="date" id="asunto-fecha-inicio" required>
+        <input type="text" id="asunto-estado" placeholder="Estado" required>
+        <button type="submit">Agregar Asunto</button>
+    </form>
+
+    <h2>Consultar Cliente</h2>
+    <form id="consulta-cliente-form">
+        <input type="text" id="consulta-cliente-dni" placeholder="DNI del Cliente" required>
+        <button type="submit">Consultar</button>
+    </form>
+    <div id="consulta-cliente-result"></div>
+
+    <h2>Consultar Asunto</h2>
+    <form id="consulta-asunto-form">
+        <input type="text" id="consulta-asunto-expediente" placeholder="Número de Expediente" required>
+        <button type="submit">Consultar</button>
+    </form>
+    <div id="consulta-asunto-result"></div>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>
